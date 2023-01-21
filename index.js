@@ -33,7 +33,7 @@ app.post('/users', async (req, res) => {
 })
 
 app.delete('/users', async (req, res) => {
-  const deletedUser = await db('users').where({ id: req.params.id }).del().returning('*');
+  const deletedUser = await db('users').where({ id: req.body.id }).del().returning('*');
   res.json(deletedUser);
 });
 

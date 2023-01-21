@@ -8,6 +8,7 @@
     "migrate": "node scripts/migrate.js",
     "plataforma": "node scripts/plataforma.js",
     "genero": "node scripts/genero.js",
+    "publisher": "node scripts/publisher.js",
     "seed": "node scripts/seed.js"
   },
   "author": "",
