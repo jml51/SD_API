@@ -1,5 +1,4 @@
-const db = require('../db')
-
+const db = require('../knexfile')
 ;(async () => {
   try {
     await db.schema.dropTableIfExists('plataforma')

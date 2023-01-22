@@ -5,7 +5,7 @@ const cors = require('cors');
 const fs = require('fs')
 
 
-const db = require('./db')
+const db = require('./knexfile')
 
 const parser = parse({columns:true}, function (err, records){
   console.log(records);
@@ -24,14 +24,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
-//app.use('/plataforma', require('./routes/plataforma'))
 const router = require("./routes");
 app.use("/api", router);
 
-app.get('/plataforma2', async (req, res) => {
-  const plataforma = await db.select().from('plataforma')
-  res.json(plataforma)
-});
 
 
 app.listen(PORT, () => console.log(`Server up at http://localhost:${PORT}`))

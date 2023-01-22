@@ -9,7 +9,8 @@ services:
     image: 'postgres'
     environment:
       POSTGRES_PASSWORD: '7754'
-      POSTGRES_USER: 'docker'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_DATABASE: SD_API
     volumes:
       - data:/var/lib/postgresql/data
 
