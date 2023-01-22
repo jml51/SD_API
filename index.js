@@ -33,5 +33,17 @@ app.get('/plataforma2', async (req, res) => {
   res.json(plataforma)
 });
 
+app.get('/genero2', async (req, res) => {
+  const genero = await db.select().from('genero')
+  res.json(genero)
+});
+
+
+app.get('/publisher2', async (req, res) => {
+  const publisher = await db.select().from('publisher')
+  res.json(publisher)
+});
+
+
 
 app.listen(PORT, () => console.log(`Server up at http://localhost:${PORT}`))
