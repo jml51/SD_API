@@ -3,7 +3,14 @@ const db = require('../db')
 module.exports = {
     getAll: async (req, res) => {
         const plataforma = await db.select().from('plataforma')
-        res.json(plataforma)
+        
+        if (plataforma) {
+            //cenario de sucesso
+            return res.json({ success: true, data: plataforma });
+          } else {
+            //cenario de erro
+            return res.json({ success: false });
+          }
     },
     getById: async (req, res) => {
         const plataforma = await db.select({where:{ id: req.body.id },}).from('plataforma')

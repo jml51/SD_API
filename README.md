@@ -9,4 +9,4 @@ terminar docker
 docker compose down
 
 iniciar ficheiro
-docker exec sd_api2-server-1 npm run migrate
+docker exec sd_api-server-1 npm run migrate

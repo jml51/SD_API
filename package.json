@@ -9,8 +9,8 @@
     "plataforma": "node scripts/plataforma.js",
     "genero": "node scripts/genero.js",
     "seed": "node scripts/seed.js",
-    "routes": "node routes/plataforma.js",
-    "controller": "node controller/plataforma.js"
+    "routes": "node routes/plataforma1.js",
+    "controller": "node controller/plataforma2.js"
   },
   "author": "",
   "license": "ISC",
