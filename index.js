@@ -24,7 +24,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use('/plataforma', require('./routes/plataforma'))
+//app.use('/plataforma', require('./routes/plataforma'))
+const router = require("./routes");
+app.use("/api", router);
 
 app.get('/plataforma2', async (req, res) => {
   const plataforma = await db.select().from('plataforma')
