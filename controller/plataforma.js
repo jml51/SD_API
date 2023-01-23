@@ -1,46 +1,43 @@
-const services = require("../services");
+const db = require('../data/db')
+
+
 
 module.exports = {
-  getAll: async (req, res) => {
-    return services.recipes.getAll().then((recipes) => res.status(200).send(recipes));
-  },
-  getById: async (req, res) => {
-    const idplataforma = await db
-      .select({ where: { id: req.body.id } })
-      .from("plataforma");
+   getAll: async (req, res) => {
+        const platforms2 = await db('platforms')
 
-    if (idplataforma) {
-      //cenario de sucesso
-      return res.json({ success: true, data: idplataforma });
-    } else {
-      //cenario de erro
-      return res.json({ success: false });
-    }
-  },
-  insert: async (req, res) => {
-    const postplataforma = await db("plataforma")
-      .insert({ plataforma: req.body.plataforma })
-      .returning("*");
+        if (platforms2) {
+            //cenario de sucesso
+            return res.json({ success: true, data: platforms2 });
+        } else {
+            //cenario de erro
+            return res.json({ success: false });
+        }
+    },
+    
+    insert: async (req, res) => {
+        const platform = req.body;
+        const platforms2 = await db("platforms").insert(platform);
 
-    if (postplataforma) {
-      //cenario de sucesso
-      return res.json({ success: true, data: postplataforma });
-    } else {
-      //cenario de erro
-      return res.json({ success: false });
-    }
-  },
-  delete: async (req, res) => {
-    const deletedplataforma = await db("plataforma")
-      .delete({ where: { id: req.body.id } })
-      .returning("*");
+        if (platforms2) {
+            //cenario de sucesso
+            return res.json({ success: true, data: platforms2 });
+        } else {
+            //cenario de erro
+            return res.json({ success: false });
+        }
+    },
 
-    if (deletedplataforma) {
-      //cenario de sucesso
-      return res.json({ success: true, data: deletedplataforma });
-    } else {
-      //cenario de erro
-      return res.json({ success: false });
+    delete : async (req, res) => {
+        const platforms = req.body;
+        const platforms2 = await db('platforms').where({ platforms }).del().returning('*')
+        
+        if (platforms2) {
+            //cenario de sucesso
+            return res.json({ success: true, data: platforms2 });
+        } else {
+            //cenario de erro
+            return res.json({ success: false });
+        }
     }
-  },
-};
+}

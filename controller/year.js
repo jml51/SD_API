@@ -4,11 +4,11 @@ const db = require('../data/db')
 
 module.exports = {
    getAll: async (req, res) => {
-        const genre2 = await db('genre')
+        const year2 = await db('year')
 
-        if (genre2) {
+        if (year2) {
             //cenario de sucesso
-            return res.json({ success: true, data: genre2 });
+            return res.json({ success: true, data: year2 });
         } else {
             //cenario de erro
             return res.json({ success: false });
@@ -16,25 +16,25 @@ module.exports = {
     },
     
     insert :  async (req, res) => {
-        const genre = req.body;
-        const genre2 = await db("genre").insert(genre);
+        const year = req.body;
+        const year2 = await db("year").insert(year);
 
-        if (genre2) {
+        if (year2) {
             //cenario de sucesso
-            return res.json({ success: true, data:genre2 });
+            return res.json({ success: true });
         } else {
             //cenario de erro
             return res.json({ success: false });
         }
     },
 
-    delete : async (req, res) => {
-        const genre = req.body;
-        const genre2 = await db('genre').where({ genre }).del().returning('*')
+   delete : async (req, res) => {
+        const year = req.body.id;
+        const year2 = await db('year').where({ year }).del().returning('*')
         
-        if (genre2) {
+        if (year2) {
             //cenario de sucesso
-            return res.json({ success: true, data: genre2 });
+            return res.json({ success: true, data: year2 });
         } else {
             //cenario de erro
             return res.json({ success: false });

@@ -5,12 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "migrate": "node scripts/migrate.js",
-    "plataforma": "node scripts/plataforma.js",
-    "genero": "node scripts/genero.js",
-    "seed": "node scripts/seed.js",
-    "routes": "node routes/plataforma1.js",
-    "controller": "node controller/plataforma2.js"
+    "migrate": "knex migrate:latest",
+    "seed:make": "knex seed:make"
+    
   },
   "author": "",
   "license": "ISC",

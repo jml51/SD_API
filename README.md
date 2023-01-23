@@ -1,12 +1,10 @@
-# SD_API
-
 cd SD_API
 
-iniciar docker
+iniciar docker 
 docker compose up --build -d
 
 terminar docker
-docker compose down
+ docker compose down
 
-iniciar ficheiro
-docker exec sd_api-server-1 npm run migrate
+iniciar ficheiro 
+docker exec sd_api-server-1 npm run migratet
