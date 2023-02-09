@@ -5,7 +5,6 @@
  */
 module.exports = {
  
-  
   client: 'postgresql',
   connection: {
     database: 'SD_API',
